@@ -1,7 +1,7 @@
 package com.codewar.lib;
 
 public class MergeSort {
-	public void merge(int[] ar, int l, int m, int r) {
+	public static void merge(int[] ar, int l, int m, int r) {
 		//to get the size of two arrays, notice that the left one contains the middle number
 		int n1 = m - l + 1;
 		int n2 = r - m;
@@ -47,20 +47,20 @@ public class MergeSort {
 		}
 	}
 	
-	public void sort(int[] ar, int l, int r) {
+	public static void sort(int[] ar, int l, int r) {
 		if (l < r) {
 			int m = (l + r) / 2;
 			sort(ar, l, m);
 			sort(ar, m+1, r);
 			
-			this.merge(ar, l, m, r);
+			MergeSort.merge(ar, l, m, r);
 		}
 	}
 	
 	public static void main(String[] args) {
 		int[] ar = {6, 5, 3, 1, 8, 7, 2, 4};
-		MergeSort ms = new MergeSort();
-		ms.sort(ar, 0, ar.length - 1);
+		MergeSort.sort(ar, 0, ar.length - 1);
+//		Arrays.sort(ar);
 		Printer.printAr(ar);
 	}
 }
