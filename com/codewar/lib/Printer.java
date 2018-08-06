@@ -1,9 +1,16 @@
 package com.codewar.lib;
 
 public class Printer {
-	public static void printAr(int[] ar) {
-		for (int i = 0; i < ar.length; i++) {
-			System.out.print(ar[i] + ", ");
+	public static void printAr(long[] arr) {
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i] + ", ");
+		}
+		System.out.println();
+	}
+	
+	public static void printAr(int[] arr) {
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i] + ", ");
 		}
 		System.out.println();
 	}

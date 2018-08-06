@@ -42,6 +42,7 @@ public class SuffixArray {
         this.suffixes = new Suffix[n];
         for (int i = 0; i < n; i++)
             suffixes[i] = new Suffix(text, i);
+//       Arrays sort signature: public void sort(Comparable array)
         Arrays.sort(suffixes);
     }
 
@@ -59,7 +60,8 @@ public class SuffixArray {
         private char charAt(int i) {
             return text.charAt(index + i);
         }
-
+        
+        @Override
         public int compareTo(Suffix that) {
             if (this == that) return 0;  // optimization
             int n = Math.min(this.length(), that.length());
@@ -67,9 +69,13 @@ public class SuffixArray {
                 if (this.charAt(i) < that.charAt(i)) return -1;
                 if (this.charAt(i) > that.charAt(i)) return +1;
             }
+            
+//            i.e. the shorter comes before the longer words if they have exactly the same prefix
+//            e.g. the & their
             return this.length() - that.length();
         }
-
+        
+        @Override
         public String toString() {
             return text.substring(index);
         }
